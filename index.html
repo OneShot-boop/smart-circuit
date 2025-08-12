@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Электрокалькулятор (Темная тема)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <h1>Электрокалькулятор</h1>
+        <div id="input-form">
+            <label for="power">Мощность нагрузки (Вт):</label>
+            <input type="number" id="power" value="2200">
+
+            <label for="voltage">Напряжение (В):</label>
+            <input type="number" id="voltage" value="220">
+
+            <label for="length">Длина кабеля (м):</label>
+            <input type="number" id="length" value="10">
+
+            <label for="material">Материал кабеля:</label>
+            <select id="material">
+                <option value="copper">Медь</option>
+                <option value="aluminum">Алюминий</option>
+            </select>
+
+            <label for="installation">Условия прокладки:</label>
+            <select id="installation">
+                <option value="open">Открытая прокладка</option>
+                <option value="pipe">В трубе/гофре</option>
+                <option value="wall">В стене</option>
+            </select>
+
+            <button onclick="calculate()">Рассчитать</button>
+        </div>
+
+        <div id="results">
+            <h2>Результаты:</h2>
+            <p>Рекомендуемое сечение кабеля: <span id="cable-section"></span> мм²</p>
+            <p>Подходящий автомат: <span id="breaker"></span> A</p>
+            <p>Рекомендуемое УЗО: <span id="rcd"></span> мА</p>
+            <button onclick="generatePDF()">Создать PDF</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
